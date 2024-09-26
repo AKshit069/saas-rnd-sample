@@ -17,12 +17,14 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from .views import home_page_view  # Import the correct view
-import importlib._bootstrap
+from .views import home_view, about_view  # Import the correct view
+
 
 urlpatterns = [
-    path("", home_page_view), 
-    path("hello-world/", home_page_view, name='home_page_view'),  # Use the correct view function
+    path("", home_view), 
+    path("about/", about_view),
+    path("hello-world/", home_view),
+    path("hello-world.html", home_view),   
     path("admin/", admin.site.urls),
 ]
 
