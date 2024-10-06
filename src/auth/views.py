@@ -1,13 +1,11 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 
-def login_view(request):
-    
-    if request.method == "GET":
-        
+def login_view(request):    
+    if request.method == "POST":  
         # Dynamically fetch the username and password from the form
-        username = "akshit"#request.POST.get("username")
-        password = "akshit"#request.POST.get("password")
+        username = request.POST.get("username") or None
+        password = request.POST.get("password") or None
         # Authenticate the user
         if all([username, password]):
             user = authenticate(request, username=username, password=password)
