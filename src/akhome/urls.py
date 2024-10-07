@@ -16,7 +16,7 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from auth import views as auth_views  # Import the built-in LoginView
 from .views import home_view, about_view  # Import the correct view
 
@@ -26,7 +26,8 @@ urlpatterns = [
     path("register/", auth_views.register_view),
     path("about/", about_view),
     path("hello-world/", home_view),
-    path("hello-world.html", home_view),   
+    path("hello-world.html", home_view),
+    path('accounts/', include('allauth.urls')),   
     path("admin/", admin.site.urls),
 ]
 
