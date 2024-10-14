@@ -21,7 +21,7 @@ from auth import views as auth_views  # Import the built-in LoginView
 from .views import home_view, about_view  # Import the correct view
 
 urlpatterns = [
-    path("", home_view),  # Homepage
+    path("", home_view, name='home'),  # Homepage
     path("login/", auth_views.login_view),
     path("register/", auth_views.register_view),
     path("about/", about_view),

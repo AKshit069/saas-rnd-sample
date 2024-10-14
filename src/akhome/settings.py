@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
     "widget_tweaks",
     "slippers",
 ]
@@ -172,7 +173,19 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 
-SOCIALACCOUNT_PROVIDERS = {}
+SOCIALACCOUNT_PROVIDERS = {
+    "github": {
+            'SCOPE': ['user:email'],
+            'AUTH_PARAMS': {'access_type': 'online'},
+            'client_id':'Iv23li67QNJ4tdboes2W',
+            'secret':'fcf367961eb84d97f1c3249c30e9505cd5c68eb2',
+            "VERIFIED_EMAIL": True
+        
+
+
+    }
+}
+
 
 
 # Internationalization
