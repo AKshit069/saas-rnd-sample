@@ -17,7 +17,8 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from auth import views as auth_views  # Import the built-in LoginView
+from auth import views as auth_views
+from subscriptions import views as subscriptions_views  # Import the built-in LoginView
 from .views import (
     home_view, 
     about_view, 
@@ -27,8 +28,10 @@ from .views import (
 
 urlpatterns = [
     path("", home_view, name='home'),  # Homepage
-    path("login/", auth_views.login_view),
-    path("register/", auth_views.register_view),
+    #path("login/", auth_views.login_view),
+    #path("register/", auth_views.register_view),
+    path("pricing/", subscriptions_views.subscription_price_view,
+    name='pricing'),
     path("about/", about_view),
     path("hello-world/", home_view),
     path("hello-world.html", home_view),
